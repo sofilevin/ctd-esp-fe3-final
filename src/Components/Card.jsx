@@ -1,20 +1,38 @@
-import React from "react";
+//import React from "react";
 
+import { Link, useLocation } from "react-router-dom";
+import { useDentistStates } from "../Context/Context";
 
-const Card = ({ name, username, id }) => {
+const Card = ({ item }) => {
+  const { dispatch } = useDentistStates();
+  const location = useLocation();
 
-  const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
+  if (!item) {
+    return null;
   }
 
   return (
     <div className="card">
-        {/* En cada card deberan mostrar en name - username y el id */}
-
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+      <Link to={"/dentist/" + item.id}>
+        <img src="/images/doctor.jpg" alt={item.name} />
+        <h3>{item.name}</h3>
+        <h4>{item.username}</h4>
+      </Link>
+      {location.pathname == "/" ? (
+        <button
+          onClick={() => dispatch({ type: "ADD_FAV", payload: item })}
+          className="favButton"
+        >
+          Add fav
+        </button>
+      ) : (
+        <button
+          className="favButton"
+          onClick={() => dispatch({ type: "DELETE_FAV", payload: item.id })}
+        >
+          Eliminar de fav
+        </button>
+      )}
     </div>
   );
 };

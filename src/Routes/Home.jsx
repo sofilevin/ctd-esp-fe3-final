@@ -1,17 +1,27 @@
-import React from 'react'
-import Card from '../Components/Card'
+//import React from 'react'
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import Card from "../Components/Card";
+import { useDentistStates } from "../Context/Context";
 
 const Home = () => {
+  const { state } = useDentistStates();
+
+
   return (
-    <main className="" >
+    <main>
       <h1>Home</h1>
-      <div className='card-grid'>
-        {/* Aqui deberias renderizar las cards */}
+      <div className="card-grid">
+        {state.dentists.map((dentist) => {
+          return (
+            <Card
+              item={dentist}
+              key={dentist.id}
+            />
+          );
+        })}
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
