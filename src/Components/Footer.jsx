@@ -6,22 +6,22 @@ const Footer = () => {
       <p>Powered by</p>
       <img src="/images/DH.png" alt="DH-logo" />
       <img
-        src="src\assets\ico-dark-facebook.png"
+        src="/images/ico-dark-facebook.png"
         alt="facebook-logo"
         className="iconos-footer"
       />
       <img
-        src="src\assets\ico-dark-instagram.png"
+        src="\images\ico-dark-instagram.png"
         alt="instagram-logo"
         className="iconos-footer"
       />
       <img
-        src="src\assets\ico-dark-tiktok.png"
+        src="\images\ico-dark-tiktok.png"
         alt="tiktok-logo"
         className="iconos-footer"
       />
       <img
-        src="src\assets\ico-dark-whatsapp.png"
+        src="/images/ico-dark-whatsapp.png"
         alt="whatsapp-logo"
         className="iconos-footer"
       />
